@@ -1,4 +1,4 @@
-import { BookOpen, Calculator, CheckCircle, Clock, Users, Award, Star } from 'lucide-react';
+import { BookOpen, Calculator, CheckCircle, Clock, Users, Award } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import Lenis from 'lenis';
 
@@ -15,11 +15,6 @@ function App() {
     const lenisInstance = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      direction: 'vertical',
-      gestureDirection: 'vertical',
-      smooth: true,
-      mouseMultiplier: 1,
-      smoothTouch: false,
       touchMultiplier: 2,
     });
 
@@ -300,9 +295,14 @@ function App() {
                   <span className="text-gray-700">Progress tracking</span>
                 </li>
               </ul>
-              <button className="w-full bg-[#ca3433] text-white py-3 rounded-lg font-bold hover:bg-[#b32f2e] transition-all">
+              <a
+                href="https://buy.stripe.com/6oU6oAg8IcEq1lDcsPdfG0c"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full bg-[#ca3433] text-white py-3 rounded-lg font-bold hover:bg-[#b32f2e] transition-all text-center"
+              >
                 Enroll in ELA
-              </button>
+              </a>
             </div>
 
             {/* Math Only */}
@@ -327,9 +327,14 @@ function App() {
                   <span className="text-gray-700">Progress tracking</span>
                 </li>
               </ul>
-              <button className="w-full bg-[#0e1f3e] text-white py-3 rounded-lg font-bold hover:bg-[#1a2f4f] transition-all">
+              <a
+                href="https://buy.stripe.com/6oU6oAg8IcEq1lDcsPdfG0c"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full bg-[#0e1f3e] text-white py-3 rounded-lg font-bold hover:bg-[#1a2f4f] transition-all text-center"
+              >
                 Enroll in Math
-              </button>
+              </a>
             </div>
 
             {/* Both Subjects */}
@@ -361,56 +366,14 @@ function App() {
                   <span>Priority support</span>
                 </li>
               </ul>
-              <button className="w-full bg-white text-[#ca3433] py-3 rounded-lg font-bold hover:bg-gray-100 transition-all">
+              <a
+                href="https://buy.stripe.com/6oU6oAg8IcEq1lDcsPdfG0c"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block w-full bg-white text-[#ca3433] py-3 rounded-lg font-bold hover:bg-gray-100 transition-all text-center"
+              >
                 Enroll Both Subjects
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-16 px-6 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#0e1f3e] text-center mb-12">
-            What Parents Say
-          </h2>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-[#f7e0e0] p-6 rounded-xl">
-              <div className="flex gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-[#ca3433] text-[#ca3433]" />
-                ))}
-              </div>
-              <p className="text-gray-700 mb-4">
-                "My daughter's confidence soared after joining this program. The instructors are amazing!"
-              </p>
-              <p className="font-semibold text-[#0e1f3e]">— Sarah M., Parent of 5th Grader</p>
-            </div>
-
-            <div className="bg-[#f7e0e0] p-6 rounded-xl">
-              <div className="flex gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-[#ca3433] text-[#ca3433]" />
-                ))}
-              </div>
-              <p className="text-gray-700 mb-4">
-                "The structured approach really helped my son prepare. He felt ready on exam day!"
-              </p>
-              <p className="font-semibold text-[#0e1f3e]">— Michael T., Parent of 7th Grader</p>
-            </div>
-
-            <div className="bg-[#f7e0e0] p-6 rounded-xl">
-              <div className="flex gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-[#ca3433] text-[#ca3433]" />
-                ))}
-              </div>
-              <p className="text-gray-700 mb-4">
-                "Worth every penny! The progress we saw in just a few weeks was incredible."
-              </p>
-              <p className="font-semibold text-[#0e1f3e]">— Jennifer L., Parent of 4th Grader</p>
+              </a>
             </div>
           </div>
         </div>
