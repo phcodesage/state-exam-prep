@@ -52,6 +52,7 @@ function App() {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element && lenis) {
+
       lenis.scrollTo(element, { offset: -80 });
     }
   };
@@ -172,25 +173,33 @@ function App() {
 
               <div className="space-y-4">
                 <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg">
-                  <div className="flex items-center gap-3 mb-2">
-                    <BookOpen className="w-5 h-5 text-[#f7e0e0]" />
-                    <span className="font-bold text-[#f7e0e0]">ELA</span>
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center gap-3">
+                      <BookOpen className="w-5 h-5 text-[#f7e0e0]" />
+                      <span className="font-bold text-[#f7e0e0]">ELA</span>
+                    </div>
+                    <span className="text-xs bg-white/20 px-2 py-1 rounded-full">6 weeks</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm">
                     <Clock className="w-4 h-4" />
                     <span>Mondays • 4–5 PM</span>
                   </div>
+                  <div className="text-xs text-gray-300 mt-2">Starts March 8</div>
                 </div>
 
                 <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg">
-                  <div className="flex items-center gap-3 mb-2">
-                    <Calculator className="w-5 h-5 text-[#f7e0e0]" />
-                    <span className="font-bold text-[#f7e0e0]">Math</span>
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center gap-3">
+                      <Calculator className="w-5 h-5 text-[#f7e0e0]" />
+                      <span className="font-bold text-[#f7e0e0]">Math</span>
+                    </div>
+                    <span className="text-xs bg-white/20 px-2 py-1 rounded-full">8 weeks</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm">
                     <Clock className="w-4 h-4" />
                     <span>Wednesdays • 4–5 PM</span>
                   </div>
+                  <div className="text-xs text-gray-300 mt-2">Starts March 11</div>
                 </div>
               </div>
             </div>
@@ -204,25 +213,33 @@ function App() {
 
               <div className="space-y-4">
                 <div className="bg-white/20 backdrop-blur-sm p-4 rounded-lg">
-                  <div className="flex items-center gap-3 mb-2">
-                    <BookOpen className="w-5 h-5" />
-                    <span className="font-bold">ELA</span>
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center gap-3">
+                      <BookOpen className="w-5 h-5" />
+                      <span className="font-bold">ELA</span>
+                    </div>
+                    <span className="text-xs bg-white/20 px-2 py-1 rounded-full">6 weeks</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm">
                     <Clock className="w-4 h-4" />
                     <span>Tuesdays • 4–5 PM</span>
                   </div>
+                  <div className="text-xs text-white/80 mt-2">Starts March 9</div>
                 </div>
 
                 <div className="bg-white/20 backdrop-blur-sm p-4 rounded-lg">
-                  <div className="flex items-center gap-3 mb-2">
-                    <Calculator className="w-5 h-5" />
-                    <span className="font-bold">Math</span>
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center gap-3">
+                      <Calculator className="w-5 h-5" />
+                      <span className="font-bold">Math</span>
+                    </div>
+                    <span className="text-xs bg-white/20 px-2 py-1 rounded-full">8 weeks</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm">
                     <Clock className="w-4 h-4" />
                     <span>Thursdays • 4–5 PM</span>
                   </div>
+                  <div className="text-xs text-white/80 mt-2">Starts March 12</div>
                 </div>
               </div>
             </div>
@@ -236,25 +253,33 @@ function App() {
 
               <div className="space-y-4">
                 <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg">
-                  <div className="flex items-center gap-3 mb-2">
-                    <BookOpen className="w-5 h-5 text-[#f7e0e0]" />
-                    <span className="font-bold text-[#f7e0e0]">ELA</span>
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center gap-3">
+                      <BookOpen className="w-5 h-5 text-[#f7e0e0]" />
+                      <span className="font-bold text-[#f7e0e0]">ELA</span>
+                    </div>
+                    <span className="text-xs bg-white/20 px-2 py-1 rounded-full">6 weeks</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm">
                     <Clock className="w-4 h-4" />
                     <span>Mondays • 5–6 PM</span>
                   </div>
+                  <div className="text-xs text-gray-300 mt-2">Starts March 8</div>
                 </div>
 
                 <div className="bg-white/10 backdrop-blur-sm p-4 rounded-lg">
-                  <div className="flex items-center gap-3 mb-2">
-                    <Calculator className="w-5 h-5 text-[#f7e0e0]" />
-                    <span className="font-bold text-[#f7e0e0]">Math</span>
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center gap-3">
+                      <Calculator className="w-5 h-5 text-[#f7e0e0]" />
+                      <span className="font-bold text-[#f7e0e0]">Math</span>
+                    </div>
+                    <span className="text-xs bg-white/20 px-2 py-1 rounded-full">8 weeks</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm">
                     <Clock className="w-4 h-4" />
                     <span>Fridays • 5–6 PM</span>
                   </div>
+                  <div className="text-xs text-gray-300 mt-2">Starts March 13</div>
                 </div>
               </div>
             </div>
