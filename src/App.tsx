@@ -1,15 +1,12 @@
-import { BookOpen, Calculator, CheckCircle, Clock, Users, Award } from 'lucide-react';
+import { BookOpen, Calculator, CheckCircle, Clock, Users, Award, ArrowUp } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import Lenis from 'lenis';
+import logo from './assets/images/exceed-logo.png';
 
 function App() {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
   const [lenis, setLenis] = useState<Lenis | null>(null);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
     const lenisInstance = new Lenis({
@@ -27,27 +24,30 @@ function App() {
 
     requestAnimationFrame(raf);
 
-    const examDate = new Date('2026-04-14T00:00:00');
-
-    const timer = setInterval(() => {
-      const now = new Date();
-      const difference = examDate.getTime() - now.getTime();
-
-      if (difference > 0) {
-        setTimeLeft({
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((difference / 1000 / 60) % 60),
-          seconds: Math.floor((difference / 1000) % 60),
-        });
+    // Show/hide scroll to top button
+    const handleScroll = () => {
+      if (window.scrollY > 500) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
       }
-    }, 1000);
+    };
+
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      clearInterval(timer);
+      window.removeEventListener('scroll', handleScroll);
       lenisInstance.destroy();
     };
   }, []);
+
+  const scrollToTop = () => {
+    if (lenis) {
+      lenis.scrollTo(0, { duration: 1.5 });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -55,21 +55,95 @@ function App() {
 
       lenis.scrollTo(element, { offset: -80 });
     }
+    setMobileMenuOpen(false); // Close mobile menu after clicking
   };
 
   return (
     <div className="min-h-screen bg-white">
+      {/* Navigation Bar */}
+      <nav className="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+          <div className="flex items-center">
+            <img src={logo} alt="Exceed Learning Logo" className="h-12 md:h-16" />
+          </div>
+          
+          <div className="hidden md:flex items-center gap-8">
+            <button
+              onClick={() => scrollToSection('schedule')}
+              className="text-[#0e1f3e] hover:text-[#ca3433] font-semibold transition-colors"
+            >
+              Schedule
+            </button>
+            <button
+              onClick={() => scrollToSection('pricing')}
+              className="text-[#0e1f3e] hover:text-[#ca3433] font-semibold transition-colors"
+            >
+              Pricing
+            </button>
+            <button
+              onClick={() => scrollToSection('pricing')}
+              className="bg-[#ca3433] text-white px-6 py-2 rounded-lg font-bold hover:bg-[#b32f2e] transition-all"
+            >
+              Enroll Now
+            </button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button 
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden text-[#0e1f3e]"
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
+        </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-white border-t border-gray-200">
+            <div className="px-6 py-4 space-y-4">
+              <button
+                onClick={() => scrollToSection('schedule')}
+                className="block w-full text-left text-[#0e1f3e] hover:text-[#ca3433] font-semibold transition-colors py-2"
+              >
+                Schedule
+              </button>
+              <button
+                onClick={() => scrollToSection('pricing')}
+                className="block w-full text-left text-[#0e1f3e] hover:text-[#ca3433] font-semibold transition-colors py-2"
+              >
+                Pricing
+              </button>
+              <button
+                onClick={() => scrollToSection('pricing')}
+                className="block w-full bg-[#ca3433] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#b32f2e] transition-all text-center"
+              >
+                Enroll Now
+              </button>
+            </div>
+          </div>
+        )}
+      </nav>
+
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-[#0e1f3e] to-[#1a2f4f] text-white py-20 px-6">
+      <section className="relative bg-gradient-to-br from-[#0e1f3e] to-[#1a2f4f] text-white py-20 px-6 mt-20">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
             State Exam Prep for<br />Grades 3–8
           </h1>
           <p className="text-xl md:text-2xl mb-4 text-gray-200">
-            Exam Date: <span className="font-semibold text-[#f7e0e0]">April 14</span>
+            <span className="font-semibold text-[#f7e0e0]">Coming Soon for 2027</span>
           </p>
           <p className="text-lg md:text-xl mb-10 text-gray-300">
-            Reviews Start: <span className="font-semibold">March 8</span>
+            Registration opens soon
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -87,27 +161,10 @@ function App() {
             </button>
           </div>
 
-          {/* Countdown Timer */}
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 max-w-2xl mx-auto">
-            <p className="text-sm uppercase tracking-wide mb-3 text-gray-300">Time Until Exam</p>
-            <div className="grid grid-cols-4 gap-4">
-              <div>
-                <div className="text-3xl md:text-4xl font-bold text-[#f7e0e0]">{timeLeft.days}</div>
-                <div className="text-xs md:text-sm text-gray-300">Days</div>
-              </div>
-              <div>
-                <div className="text-3xl md:text-4xl font-bold text-[#f7e0e0]">{timeLeft.hours}</div>
-                <div className="text-xs md:text-sm text-gray-300">Hours</div>
-              </div>
-              <div>
-                <div className="text-3xl md:text-4xl font-bold text-[#f7e0e0]">{timeLeft.minutes}</div>
-                <div className="text-xs md:text-sm text-gray-300">Minutes</div>
-              </div>
-              <div>
-                <div className="text-3xl md:text-4xl font-bold text-[#f7e0e0]">{timeLeft.seconds}</div>
-                <div className="text-xs md:text-sm text-gray-300">Seconds</div>
-              </div>
-            </div>
+          {/* Coming Soon Banner */}
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 max-w-2xl mx-auto">
+            <p className="text-2xl md:text-3xl font-bold text-[#f7e0e0] mb-2">2027 Program</p>
+            <p className="text-lg text-gray-300">Stay tuned for dates and registration details</p>
           </div>
         </div>
       </section>
@@ -430,6 +487,17 @@ function App() {
           </p>
         </div>
       </footer>
+
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 bg-[#ca3433] text-white p-4 rounded-full shadow-lg hover:bg-[#b32f2e] transition-all transform hover:scale-110 z-50"
+          aria-label="Scroll to top"
+        >
+          <ArrowUp className="w-6 h-6" />
+        </button>
+      )}
     </div>
   );
 }
