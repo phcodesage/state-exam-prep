@@ -16,7 +16,7 @@ const DEFAULT_CONTENT = {
     body: 'Our expert tutors provide targeted instruction aligned with NYS standards to help every student succeed on state exams.',
   },
   contact: {
-    email: 'info@exceedlearning.com',
+    email: 'kidsprograms@exceedlearningcenterny.com',
     phone: '(555) 123-4567',
     address: '',
   },

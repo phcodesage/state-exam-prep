@@ -36,7 +36,7 @@ export default function Home() {
           <div className="flex items-center">
             <img src="/images/exceed-logo.png" alt="Exceed Learning Logo" className="h-12 md:h-16" />
           </div>
-          
+
           <div className="hidden md:flex items-center gap-8">
             <button
               onClick={() => scrollToSection('schedule')}
@@ -58,7 +58,7 @@ export default function Home() {
             </button>
           </div>
 
-          <button 
+          <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="md:hidden text-[#0e1f3e]"
             aria-label="Toggle menu"
@@ -192,7 +192,9 @@ export default function Home() {
               <div className="text-center mb-6">
                 <BookOpen className="w-12 h-12 text-[#ca3433] mx-auto mb-4" />
                 <h3 className="text-2xl font-bold text-[#0e1f3e] mb-2">ELA Only</h3>
-                <div className="text-5xl font-bold text-[#ca3433] mb-2">$329</div>
+                <div className="text-5xl font-bold text-[#ca3433] mb-2">
+                  $329 <span className="text-lg font-normal text-gray-500">(Early rate)</span>
+                </div>
                 <p className="text-gray-600">Complete ELA prep</p>
               </div>
               <ul className="space-y-3 mb-8">
@@ -223,7 +225,9 @@ export default function Home() {
               <div className="text-center mb-6">
                 <Calculator className="w-12 h-12 text-[#0e1f3e] mx-auto mb-4" />
                 <h3 className="text-2xl font-bold text-[#0e1f3e] mb-2">Math Only</h3>
-                <div className="text-5xl font-bold text-[#ca3433] mb-2">$429</div>
+                <div className="text-5xl font-bold text-[#ca3433] mb-2">
+                  $429 <span className="text-lg font-normal text-gray-500">(Early rate)</span>
+                </div>
                 <p className="text-gray-600">Complete Math prep</p>
               </div>
               <ul className="space-y-3 mb-8">
@@ -260,7 +264,9 @@ export default function Home() {
                   <Calculator className="w-10 h-10" />
                 </div>
                 <h3 className="text-2xl font-bold mb-2">Both Subjects</h3>
-                <div className="text-5xl font-bold mb-2">$700</div>
+                <div className="text-5xl font-bold mb-2">
+                  $700 <span className="text-lg font-normal text-white/80">(Early rate)</span>
+                </div>
                 <p className="text-white/90">Complete exam prep</p>
                 <p className="text-sm text-white/80 mt-2">Save $58!</p>
               </div>
@@ -448,17 +454,17 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Email */}
+            {/* Website */}
             <div className="flex items-center gap-4">
               <div className="bg-[#ca3433] w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0">
                 <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
                 </svg>
               </div>
               <div>
-                <p className="text-xs font-bold uppercase tracking-widest text-gray-300 mb-1">Email Address:</p>
-                <a href="mailto:info@exceedlearning.com" className="text-white font-semibold underline hover:text-[#f7e0e0] transition-colors">
-                  Email us directly [+]
+                <p className="text-xs font-bold uppercase tracking-widest text-gray-300 mb-1">Website:</p>
+                <a href="https://www.exceedlearningcenterny.com/" target="_blank" rel="noopener noreferrer" className="text-white font-semibold underline hover:text-[#f7e0e0] transition-colors">
+                  exceedlearningcenterny.com
                 </a>
               </div>
             </div>
